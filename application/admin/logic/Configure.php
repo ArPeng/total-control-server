@@ -24,7 +24,7 @@ class Configure extends Base
     public static function getConfigure(string $key): array
     {
         // TODO: Implement getConfigure() method.
-        $model = new Setting();
+        $model  = new Setting();
         $result = $model->getConfigure($key);
         return Functions::result(STATUS_CODE::SUCCESS, $result);
     }
@@ -39,7 +39,7 @@ class Configure extends Base
     public static function setConfigure(string $key, array $value = [], string $description = ''): array
     {
         // TODO: Implement setConfigure() method.
-        $model = new Setting();
+        $model  = new Setting();
         $result = $model
             ->setConfigure($key, $value, $description);
         if ($result) {

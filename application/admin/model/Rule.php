@@ -81,12 +81,12 @@ class Rule extends Base
                 STATUS_CODE::PARAMETER_ERROR
             );
         }
-        $_data['pid'] = empty($data['pid']) ? 0 : (int)$data['pid'];
-        $_data['name'] = (string)$data['name'];
-        $_data['identification'] = (string)$data['identification'];
-        $_data['type'] = (int)$data['type'];
-        $_data['icon_class'] = !empty($data['icon_class']) ? (string)$data['icon_class']  : '';
-        $_data['icon_family'] = !empty($data['icon_family']) ? (string)$data['icon_family'] : '';
+        $_data['pid']               = empty($data['pid']) ? 0 : (int)$data['pid'];
+        $_data['name']              = (string)$data['name'];
+        $_data['identification']    = (string)$data['identification'];
+        $_data['type']              = (int)$data['type'];
+        $_data['icon_class']        = !empty($data['icon_class']) ? (string)$data['icon_class']  : '';
+        $_data['icon_family']       = !empty($data['icon_family']) ? (string)$data['icon_family'] : '';
 
         return $this
             ->data($_data)

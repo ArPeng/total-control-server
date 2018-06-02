@@ -126,7 +126,7 @@ class Sign
             exception('令牌(token)不能为空',
                 STATUS_CODE::PARAMETER_ERROR);
         }
-        $model = new Administrator();
+        $model  = new Administrator();
         $fields = 'uid,uuid,mobile,email,name,avatar,status,expiration_date_token';
         $result = $model->getUserInfoByToken(
             $token,
@@ -167,8 +167,8 @@ class Sign
             );
         }
         // 如果不在白名单则进行权限验证
-        $rules_ids = self::getRulesByUid($result['uid']);
-        $rule_model = new Rule();
+        $rules_ids      = self::getRulesByUid($result['uid']);
+        $rule_model     = new Rule();
         $identification = $rule_model->identificationToId($identification);
         if (!in_array($identification['id'], $rules_ids)) {
             return Functions::result(
@@ -214,12 +214,12 @@ class Sign
      */
     private static function getRulesByUid(int $uid)
     {
-        $user_model = new Administrator();
-        $group_model = new Group();
+        $user_model     = new Administrator();
+        $group_model    = new Group();
         // 获取管理员的管理组信息
-        $group_info = $user_model->getGroup($uid);
+        $group_info     = $user_model->getGroup($uid);
         // 通过groupID获取rules
-        $rule_ids = $group_info['rules'];
+        $rule_ids       = $group_info['rules'];
         if ($group_info['groups']) {
             $group_rules = $group_model
                 ->getRulesByIds($group_info['groups']);

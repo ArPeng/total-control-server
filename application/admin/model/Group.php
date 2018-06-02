@@ -86,7 +86,6 @@ class Group extends Base
             unset($data['rules']);
         }
         return (int)$this->save($data, ['id' => $data['id']]);
-//        return $this->update($data);
     }
 
     /**

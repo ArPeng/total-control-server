@@ -37,7 +37,7 @@ class Group extends Base
     public static function update(array $data): array
     {
         // TODO: Implement update() method.
-        $model = new \app\admin\model\Group();
+        $model  = new \app\admin\model\Group();
         $result = $model->updateById($data);
         if ((bool) $result) {
             return Functions::result(STATUS_CODE::SUCCESS, '修改成功');
@@ -54,7 +54,7 @@ class Group extends Base
     public static function delete(string $id, int $uid): array
     {
         // TODO: Implement delete() method.
-        $model = new \app\admin\model\Group();
+        $model  = new \app\admin\model\Group();
         $result = false;
         if (self::trash($model, ['id' => $id], $uid)){
             $result = (bool) $model->deleteById($id);
@@ -74,7 +74,7 @@ class Group extends Base
     public static function getGroupInfoById(int $id, string $fields = 'id,name,rules,descriptions,create_at,update_at')
     {
         // TODO: Implement getGroupInfoById() method.
-        $model = new \app\admin\model\Group();
+        $model  = new \app\admin\model\Group();
         $result = $model->getOneById($id,$fields);
         return Functions::result(STATUS_CODE::SUCCESS, $result);
     }
@@ -88,16 +88,16 @@ class Group extends Base
     public static function getList(
         int $page,
         int $pageSize,
-        array $where = [],
-        string $order = '',
-        $fields = 'id,name,rules,descriptions,create_at,update_at'
+        array $where    = [],
+        string $order   = '',
+        $fields         = 'id,name,rules,descriptions,create_at,update_at'
     ): array
     {
         // TODO: Implement getList() method.
-        $model = new \app\admin\model\Group();
-        $result = [];
-        $result['list'] = $model->getItem($page, $pageSize, $where, $order, $fields);
-        $result['total'] = $model->total($where);
+        $model              = new \app\admin\model\Group();
+        $result             = [];
+        $result['list']     = $model->getItem($page, $pageSize, $where, $order, $fields);
+        $result['total']    = $model->total($where);
         return Functions::result(STATUS_CODE::SUCCESS, $result);
     }
 
@@ -110,7 +110,7 @@ class Group extends Base
     public static function updateRulesById(int $id, string $rules): array
     {
         // TODO: Implement updateRulesById() method.
-        $model = new \app\admin\model\Group();
+        $model  = new \app\admin\model\Group();
         $result = (bool) $model->updateRulesById($id, $rules);
         if ($result) {
             return Functions::result(STATUS_CODE::SUCCESS, '授权成功');

@@ -66,17 +66,17 @@ class Setting extends Base
         if (!$this->hasKey($key)) {
             $result = $this
                 ->data([
-                    'key' => $key,
-                    'value' => json_encode($value),
-                    'description' => $description
+                    'key'           => $key,
+                    'value'         => json_encode($value),
+                    'description'   => $description
                 ])->save();
         } else { // 存在则更新
             $data = [];
             if (!empty($value)) {
-                $data['value'] = json_encode($value);
+                $data['value']          = json_encode($value);
             }
             if (!empty($description)) {
-                $data['description'] = $description;
+                $data['description']    = $description;
             }
             $result = $this
                 ->save($data, ['key' => $key]);

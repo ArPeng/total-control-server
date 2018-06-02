@@ -30,9 +30,9 @@ class Authorization extends Base
 
             );
         }
-        $_data['uid'] = (int) $data['uid'];
-        $_data['groups'] = $data['group_id']?$data['group_id']:'';
-        $_data['rules'] = $data['rules']?$data['rules']:'';
+        $_data['uid']       = (int) $data['uid'];
+        $_data['groups']    = $data['group_id']?$data['group_id']:'';
+        $_data['rules']     = $data['rules']?$data['rules']:'';
         if ($this->total(['uid' => $_data['uid']]) > 0) {
             return $this->update($_data);
         } else {

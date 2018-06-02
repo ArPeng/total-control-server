@@ -22,7 +22,7 @@ class Administrator extends Base
      * @return array
      */
     public static function userInfoByToken (string $token, $fields = 'uid,uuid,name,mobile,email,status'): array {
-        $model = new \app\admin\model\Administrator();
+        $model  = new \app\admin\model\Administrator();
         $result = $model->getUserInfoByToken($token, $fields);
         if ($result) {
             return Functions::result(STATUS_CODE::SUCCESS, $result);
@@ -77,20 +77,20 @@ class Administrator extends Base
         /**
          * 对密码进行加密
          */
-        $password = Functions::password(strtolower(trim($data['password'])));
-        $_data['mobile'] = isset($data['mobile']) ? $data['mobile'] : '';
-        $_data['email'] = isset($data['email']) ? $data['email'] : '';
-        $_data['name'] = $data['name'];
-        $_data = array_merge($_data, $password);
+        $password           = Functions::password(strtolower(trim($data['password'])));
+        $_data['mobile']    = isset($data['mobile']) ? $data['mobile'] : '';
+        $_data['email']     = isset($data['email']) ? $data['email'] : '';
+        $_data['name']      = $data['name'];
+        $_data              = array_merge($_data, $password);
 
         // 生成uuid
-        $uuid = Functions::getUUID();
+        $uuid   = Functions::getUUID();
         RE_UUID:
-        $uuid = Functions::getUUID();
+        $uuid   = Functions::getUUID();
 
-        $model = new \app\admin\model\Administrator();
+        $model  = new \app\admin\model\Administrator();
         // 检测uuid是否存在
-        $count = $model
+        $count  = $model
             ->where(
                 'uuid',
                 $uuid
@@ -148,10 +148,10 @@ class Administrator extends Base
     public static function item(int $page, int $num): array
     {
         // TODO: Implement item() method.
-        $fields = 'uuid,mobile,email,name,avatar,status';
-        $where = [];
-        $model = new \app\admin\model\Administrator();
-        $total = $model
+        $fields     = 'uuid,mobile,email,name,avatar,status';
+        $where      = [];
+        $model      = new \app\admin\model\Administrator();
+        $total      = $model
             ->total($where);
         $result = $model
             ->getItem(
@@ -177,7 +177,7 @@ class Administrator extends Base
     public static function userInfoByUUID(string $uuid): array
     {
         // TODO: Implement userInfo() method.
-        $model = new \app\admin\model\Administrator();
+        $model  = new \app\admin\model\Administrator();
         $fields = 'name,mobile,email,status';
         $result = $model
             ->getUserInfoByUUID($uuid, $fields);
@@ -314,7 +314,7 @@ class Administrator extends Base
     public static function isDisable(string $uuid, int $type): array
     {
         // TODO: Implement isDisable() method.
-        $model = new \app\admin\model\Administrator();
+        $model  = new \app\admin\model\Administrator();
         $result = null;
         switch ($type) {
             case 1:
@@ -338,7 +338,7 @@ class Administrator extends Base
     public static function authorization(array $data): array
     {
         // TODO: Implement authorization() method.
-        $model = new Authorization();
+        $model  = new Authorization();
         $result = $model->authorization($data);
         if ($result) {
             return Functions::result(STATUS_CODE::SUCCESS, $result, '授权成功');
