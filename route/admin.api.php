@@ -54,7 +54,7 @@ Route::get('group.get_group_info_by_id', 'admin/Group/getGroupInfoById');
 // 获取管理组列表
 Route::get('group.get_list', 'admin/Group/getList');
 // 给用户组授权
-Route::get('group.authorization', 'admin/Group/authorization');
+Route::post('group.authorization', 'admin/Group/authorization');
 // 获取所有用户组
 Route::get('group.all', 'admin/Group/all');
 /**************************配置相关********************/

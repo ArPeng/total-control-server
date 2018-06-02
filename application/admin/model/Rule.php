@@ -193,8 +193,8 @@ class Rule extends Base
             );
         }
         $total = $this->total([
-            'identification' => $data['identification'],
-            'id' => ['<>', $data['id']]
+            ['identification', '=', $data['identification']],
+            ['id', '<>', $data['id']]
         ]);
         if ($total > 0) {
             exception(

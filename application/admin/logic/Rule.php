@@ -230,7 +230,6 @@ class Rule extends Base
         $ruleModel = new \app\admin\model\Rule();
         $parent = $ruleModel->identificationToId($identification);
         $rules = $ruleModel->rules($ruleIds, 'id,pid,identification');
-//        return $rules->toArray();
         $menu = self::getSubs($rules, $parent['id']);
         $permission = [];
         foreach ($menu as $v) {
