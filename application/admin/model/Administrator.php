@@ -97,11 +97,11 @@ class Administrator extends Base
      * @return false|\PDOStatement|string|\think\Collection
      */
     public function getItem(
-        int $page       = 1,
-        int $num        = 20,
-        array $where    = [],
-        $order          = 'create_at desc',
-        $fields         = 'uid,uuid,mobile,email,password,encrypt,name,avatar,status,token,expiration_data_token,create_at,update_at'
+        int $page = 1,
+        int $num = 20,
+        array $where = [],
+        $order = 'create_at desc',
+        $fields = 'uid,uuid,mobile,email,password,encrypt,name,avatar,status,token,expiration_data_token,create_at,update_at'
     )
     {
         // 关联查询的查询字段里面必须有关联字段

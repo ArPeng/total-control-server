@@ -7,8 +7,6 @@
  */
 
 namespace app\admin\model;
-
-
 use extend\STATUS_CODE;
 
 class Group extends Base
@@ -118,7 +116,6 @@ class Group extends Base
      */
     public function deleteById($id)
     {
-//        return $this
         return (int)self::destroy($id);
     }
 

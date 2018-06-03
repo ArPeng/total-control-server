@@ -33,6 +33,6 @@ class Base
         $result = $trash
             ->data($data)
             ->save();
-        return boolval($data);
+        return (bool) $result;
     }
 }

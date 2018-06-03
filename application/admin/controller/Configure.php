@@ -9,6 +9,8 @@
 namespace app\admin\controller;
 
 
+use think\Request;
+
 class Configure extends Auth
 {
     /**

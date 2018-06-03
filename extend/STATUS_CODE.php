@@ -35,5 +35,7 @@ class STATUS_CODE
     const DATA_NOT_FIND = 10010;
     // 权限不足
     const PERMISSION_DENIED = 10011;
+    // 上传错误
+    const UPLOAD_ERROR = 10012;
 
 }

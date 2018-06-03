@@ -57,6 +57,7 @@ class Rule extends Base
         // TODO: Implement delete() method.
         $model = new \app\admin\model\Rule();
         if (self::trash($model, ['id' => $id], $uid)) {
+
             $result = $model->deleteById($id);
             if ($result) {
                 return Functions::result(STATUS_CODE::SUCCESS,'删除成功');

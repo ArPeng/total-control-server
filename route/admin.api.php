@@ -1,4 +1,5 @@
 <?php
+Route::get('test', 'admin/Test/Test');
 /**
  * 后台接口路由
  */
@@ -62,3 +63,20 @@ Route::get('group.all', 'admin/Group/all');
 Route::get('configure.rule_white_list', 'admin/Configure/getRuleWhiteList');
 // 设置权限白名单
 Route::get('configure.set_rule_white_list', 'admin/Configure/setRuleWhiteList');
+
+/**************************文件上传相关********************/
+//  上传图片
+Route::post('upload.image', 'admin/Upload/image');
+/**************************分类相关********************/
+// 创建分类
+Route::post('category.create', 'admin/Category/create');
+// 获取分类列表
+Route::get('category.items', 'admin/Category/items');
+// 获取无限极分类数据格式
+Route::get('category.infinite', 'admin/Category/infinite');
+// 删除分类
+Route::post('category.delete', 'admin/Category/delete');
+// 通过ID修改分类
+Route::post('category.update_by_id', 'admin/Category/updateById');
+// 通过ID获取单条数据
+Route::get('category.info_by_id', 'admin/Category/infoById');
