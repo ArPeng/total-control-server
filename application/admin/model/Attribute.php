@@ -15,8 +15,6 @@ use extend\STATUS_CODE;
 class Attribute extends Base
 {
     protected $pk = 'id';
-    // 此处表名请务必设置为public
-    // 这个文件回收站方法会使用到
     public $table = 'attribute';
     /**
      * @purpose 一对多关联属性值表
