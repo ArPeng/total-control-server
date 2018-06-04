@@ -50,7 +50,7 @@ class Category extends Auth
     public function delete (Request $request)
     {
         $id = $request->post('id', 0);
-        return \app\admin\logic\Category::delete($id);
+        return \app\admin\logic\Category::delete($id, self::$user_info['uid']);
     }
 
     /**

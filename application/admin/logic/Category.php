@@ -40,6 +40,7 @@ class Category extends Base
     public static function items (int $pid): array
     {
         $model = new \app\admin\model\Category();
+
         $result = $model->itemsByPid(
             $pid,
             'id,name,thumb');
@@ -69,10 +70,13 @@ class Category extends Base
      * @param int $id
      * @return array
      */
-    public static function delete (int $id):array
+    public static function delete (int $id, int $uid):array
     {
         $model = new \app\admin\model\Category();
-        return $model->del($id);
+
+        if (self::trash($model, ['id' => $id], $uid)) {
+            return $model->del($id);
+        }
     }
 
     /**

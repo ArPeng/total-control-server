@@ -101,7 +101,7 @@ return [
     // 合并路由规则
     'route_rule_merge'       => false,
     // 路由是否完全匹配
-    'route_complete_match'   => false,
+    'route_complete_match'   => true,
     // 使用注解路由
     'route_annotation'       => false,
     // 域名根，如thinkphp.cn
@@ -146,8 +146,8 @@ return [
             'errorInfo' => [
                 'file'          => $e->getFile () ,
                 'line'          => $e->getLine () ,
-                'traceAsString' => $e->getTraceAsString () ,
-                'previous'      => $e->getPrevious ()
+//                'traceAsString' => $e->getTraceAsString () ,
+//                'previous'      => $e->getPrevious ()
             ] ,
             'data'      => []
         ]);

@@ -80,3 +80,14 @@ Route::post('category.delete', 'admin/Category/delete');
 Route::post('category.update_by_id', 'admin/Category/updateById');
 // 通过ID获取单条数据
 Route::get('category.info_by_id', 'admin/Category/infoById');
+/**************************属性相关********************/
+// 获取属性列表
+Route::get('attribute.items', 'admin/Attribute/items');
+// 添加属性
+Route::post('attribute.create', 'admin/Attribute/create');
+// 删除属性
+Route::post('attribute.delete', 'admin/Attribute/delete');
+// 添加属性值
+Route::post('attribute.create.attach', 'admin/Attribute/createAttach');
+// 删除属性值
+Route::post('attribute.delete.attach', 'admin/Attribute/deleteAttach');
