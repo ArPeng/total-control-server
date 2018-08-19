@@ -9,10 +9,10 @@
 namespace app\admin\logic;
 
 
-use app\admin\model\Administrator;
-use app\admin\model\Group;
-use app\admin\model\Rule;
-use app\admin\model\Setting;
+use app\model\Administrator;
+use app\model\Group;
+use app\model\Rule;
+use app\model\Setting;
 use extend\Functions;
 use extend\STATUS_CODE;
 

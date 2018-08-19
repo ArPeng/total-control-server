@@ -22,7 +22,7 @@ class Rule extends Base
     public static function create(array $data): array
     {
         // TODO: Implement create() method.
-        $model  = new \app\admin\model\Rule();
+        $model  = new \app\model\Rule();
         $result = $model->addOnce($data);
         if ($result) {
             return Functions::result(STATUS_CODE::SUCCESS,'添加成功');
@@ -38,7 +38,7 @@ class Rule extends Base
     public static function update(array $data): array
     {
         // TODO: Implement update() method.
-        $model  = new \app\admin\model\Rule();
+        $model  = new \app\model\Rule();
         $result = $model->updateById($data);
         if ($result) {
             return Functions::result(STATUS_CODE::SUCCESS,'修改成功');
@@ -55,7 +55,7 @@ class Rule extends Base
     public static function delete(string $id, int $uid): array
     {
         // TODO: Implement delete() method.
-        $model = new \app\admin\model\Rule();
+        $model = new \app\model\Rule();
         if (self::trash($model, ['id' => $id], $uid)) {
 
             $result = $model->deleteById($id);
@@ -75,7 +75,7 @@ class Rule extends Base
     public static function getListByPid(int $pid = 0): array
     {
         // TODO: Implement getListByPid() method.
-        $model  = new \app\admin\model\Rule();
+        $model  = new \app\model\Rule();
         $result = $model->getListByPid((int)$pid);
         return Functions::result(STATUS_CODE::SUCCESS,$result);
     }
@@ -89,7 +89,7 @@ class Rule extends Base
     public static function getRuleInfoById(int $id, string $fields = '*'): array
     {
         // TODO: Implement getRuleInfoById() method.
-        $model  = new \app\admin\model\Rule();
+        $model  = new \app\model\Rule();
         $result = $model
             ->getOneById($id, $fields);
         if ($result) {
@@ -105,7 +105,7 @@ class Rule extends Base
     public static function infinite(): array
     {
         // TODO: Implement infinite() method.
-        $model  = new \app\admin\model\Rule();
+        $model  = new \app\model\Rule();
         $data   = $model->getAll('id,pid,name,type');
 
 
@@ -130,7 +130,7 @@ class Rule extends Base
     {
         // TODO: Implement dashboard() method.
         $ruleIds    = self::getRulesByUid($uid);
-        $ruleModel  = new \app\admin\model\Rule();
+        $ruleModel  = new \app\model\Rule();
         $menu       = $ruleModel->firstMenu($ruleIds);
         // 刚写到这里,准备通过ID查询一级菜单
         return Functions::result(STATUS_CODE::SUCCESS, $menu);
@@ -143,8 +143,8 @@ class Rule extends Base
      */
     private static function getRulesByUid(int $uid): string
     {
-        $userModel  = new \app\admin\model\Administrator();
-        $groupModel = new \app\admin\model\Group();
+        $userModel  = new \app\model\Administrator();
+        $groupModel = new \app\model\Group();
         // 获取管理员的管理组信息
         $groupInfo  = $userModel->getGroup($uid);
         // 通过groupID获取rules
@@ -168,7 +168,7 @@ class Rule extends Base
 //    {
 //        // TODO: Implement menu() method.
 //        $ruleIds = self::getRulesByUid($uid);
-//        $ruleModel = new \app\admin\model\Rule();
+//        $ruleModel = new \app\model\Rule();
 ////        $dashboardId = $ruleModel->identificationToId($identification);
 //        $menu = $ruleModel->sidebarMenu($ruleIds)->toArray();
 //        $menu = self::getSubs($menu);
@@ -179,7 +179,7 @@ class Rule extends Base
     {
         // TODO: Implement menu() method.
         $ruleIds        = self::getRulesByUid($uid);
-        $ruleModel      = new \app\admin\model\Rule();
+        $ruleModel      = new \app\model\Rule();
         $dashboardId    = $ruleModel->identificationToId($identification);
         $menu = $ruleModel->sidebarMenu($ruleIds)->toArray();
         $menu = self::getSubs($menu, $dashboardId['id']);
@@ -228,7 +228,7 @@ class Rule extends Base
     {
         // TODO: Implement identification() method.
         $ruleIds    = self::getRulesByUid($uid);
-        $ruleModel  = new \app\admin\model\Rule();
+        $ruleModel  = new \app\model\Rule();
         $parent     = $ruleModel->identificationToId($identification);
         $rules      = $ruleModel->rules($ruleIds, 'id,pid,identification');
         $menu       = self::getSubs($rules, $parent['id']);

@@ -9,7 +9,7 @@
 namespace app\admin\logic;
 
 
-use app\admin\model\Authorization;
+use app\model\Authorization;
 use extend\Functions;
 use extend\STATUS_CODE;
 
@@ -22,7 +22,7 @@ class Administrator extends Base
      * @return array
      */
     public static function userInfoByToken (string $token, $fields = 'uid,uuid,name,mobile,email,status'): array {
-        $model  = new \app\admin\model\Administrator();
+        $model  = new \app\model\Administrator();
         $result = $model->getUserInfoByToken($token, $fields);
         if ($result) {
             return Functions::result(STATUS_CODE::SUCCESS, $result);
@@ -88,7 +88,7 @@ class Administrator extends Base
         RE_UUID:
         $uuid   = Functions::getUUID();
 
-        $model  = new \app\admin\model\Administrator();
+        $model  = new \app\model\Administrator();
         // 检测uuid是否存在
         $count  = $model
             ->where(
@@ -150,7 +150,7 @@ class Administrator extends Base
         // TODO: Implement item() method.
         $fields     = 'uuid,mobile,email,name,avatar,status';
         $where      = [];
-        $model      = new \app\admin\model\Administrator();
+        $model      = new \app\model\Administrator();
         $total      = $model
             ->total($where);
         $result = $model
@@ -177,7 +177,7 @@ class Administrator extends Base
     public static function userInfoByUUID(string $uuid): array
     {
         // TODO: Implement userInfo() method.
-        $model  = new \app\admin\model\Administrator();
+        $model  = new \app\model\Administrator();
         $fields = 'name,mobile,email,status';
         $result = $model
             ->getUserInfoByUUID($uuid, $fields);
@@ -233,7 +233,7 @@ class Administrator extends Base
             );
         }
 
-        $model = new \app\admin\model\Administrator();
+        $model = new \app\model\Administrator();
         if ($data['mobile']) {
             $count = $model
                 ->where(
@@ -293,7 +293,7 @@ class Administrator extends Base
                 STATUS_CODE::PARAMETER_ERROR
             );
         }
-        $model = new \app\admin\model\Administrator();
+        $model = new \app\model\Administrator();
         if (self::trash($model, ['uuid' => $uuid], $uid)) {
             $result = $model
                 ->where(['uuid' => $uuid])
@@ -314,7 +314,7 @@ class Administrator extends Base
     public static function isDisable(string $uuid, int $type): array
     {
         // TODO: Implement isDisable() method.
-        $model  = new \app\admin\model\Administrator();
+        $model  = new \app\model\Administrator();
         $result = null;
         switch ($type) {
             case 1:

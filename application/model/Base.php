@@ -2,7 +2,7 @@
 /**
  * @purpose 模型基础类
  */
-namespace app\admin\model;
+namespace app\model;
 
 use think\Model;
 

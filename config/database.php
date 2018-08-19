@@ -15,11 +15,11 @@ return [
     // 服务器地址
     'hostname'        => '127.0.0.1',
     // 数据库名
-    'database'        => 'v-extravagant',
+    'database'        => Env::get('db.database'),
     // 用户名
-    'username'        => 'root',
+    'username'        => Env::get('db.username'),
     // 密码
-    'password'        => '',
+    'password'        => Env::get('db.password'),
     // 端口
     'hostport'        => '',
     // 连接dsn

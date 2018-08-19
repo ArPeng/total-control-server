@@ -11,7 +11,7 @@ namespace extend;
 
 class STATUS_CODE
 {
-     // 请求成功
+    // 请求成功
     const SUCCESS = 10000;
     // 参数错误
     const PARAMETER_ERROR = 10001;
@@ -37,5 +37,7 @@ class STATUS_CODE
     const PERMISSION_DENIED = 10011;
     // 上传错误
     const UPLOAD_ERROR = 10012;
+    // 订单状态错误
+    const ORDER_STATUS_ERROR = 10013;
 
 }

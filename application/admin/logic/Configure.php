@@ -9,7 +9,7 @@
 namespace app\admin\logic;
 
 
-use app\admin\model\Setting;
+use app\model\Setting;
 use extend\Functions;
 use extend\STATUS_CODE;
 

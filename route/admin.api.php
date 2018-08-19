@@ -67,27 +67,3 @@ Route::get('configure.set_rule_white_list', 'admin/Configure/setRuleWhiteList');
 /**************************文件上传相关********************/
 //  上传图片
 Route::post('upload.image', 'admin/Upload/image');
-/**************************分类相关********************/
-// 创建分类
-Route::post('category.create', 'admin/Category/create');
-// 获取分类列表
-Route::get('category.items', 'admin/Category/items');
-// 获取无限极分类数据格式
-Route::get('category.infinite', 'admin/Category/infinite');
-// 删除分类
-Route::post('category.delete', 'admin/Category/delete');
-// 通过ID修改分类
-Route::post('category.update_by_id', 'admin/Category/updateById');
-// 通过ID获取单条数据
-Route::get('category.info_by_id', 'admin/Category/infoById');
-/**************************属性相关********************/
-// 获取属性列表
-Route::get('attribute.items', 'admin/Attribute/items');
-// 添加属性
-Route::post('attribute.create', 'admin/Attribute/create');
-// 删除属性
-Route::post('attribute.delete', 'admin/Attribute/delete');
-// 添加属性值
-Route::post('attribute.create.attach', 'admin/Attribute/createAttach');
-// 删除属性值
-Route::post('attribute.delete.attach', 'admin/Attribute/deleteAttach');

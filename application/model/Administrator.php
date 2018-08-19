@@ -6,15 +6,13 @@
  * @Date   2018/05/28 16:35
  */
 
-namespace app\admin\model;
+namespace app\model;
 use extend\STATUS_CODE;
 
 class Administrator extends Base
 {
     protected $pk = 'uid';
     // 此处表名请务必设置为public
-    // server/service/administrator/controller/Trash.php
-    // 这个文件回收站方法会使用到
     public $table = 'administrator';
 
     /**
@@ -26,10 +24,15 @@ class Administrator extends Base
             ->hasOne('Authorization', 'uid','uid')
             ->bind('groups,rules');
     }
+
     /**
      * @purpose 通过token获取用户信息
-     * @param        $token
-     * @param string $fields
+     * @param $token
+     * @param string $field
+     * @return array|null|\PDOStatement|string|\think\Model
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     public function getUserInfoByToken($token, $field = '*')
     {
@@ -45,9 +48,12 @@ class Administrator extends Base
     }
 
     /**
-     * @purpose 通过uuid获取用户信息
-     * @param        $uuid
-     * @param string $fields
+     * @param $uuid
+     * @param string $field
+     * @return array|null|\PDOStatement|string|\think\Model
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     public function getUserInfoByUUID($uuid, $field = '*')
     {
@@ -90,11 +96,14 @@ class Administrator extends Base
     /**
      * @purpose 获取管理员列表
      * @param int $page
-     * @param int $nums
+     * @param int $num
      * @param array $where
      * @param string $order
      * @param string $fields
-     * @return false|\PDOStatement|string|\think\Collection
+     * @return array|\PDOStatement|string|\think\Collection
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     public function getItem(
         int $page = 1,
@@ -153,6 +162,10 @@ class Administrator extends Base
     /**
      * @purpose 通过UID获取group信息
      * @param int $uid
+     * @return array|null|\PDOStatement|string|\think\Model
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     public function getGroup (int $uid) {
         return $this

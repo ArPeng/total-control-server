@@ -9,7 +9,7 @@
 namespace app\admin\logic;
 
 
-use app\admin\model\RecycleBin;
+use app\model\RecycleBin;
 use think\Model;
 
 class Base

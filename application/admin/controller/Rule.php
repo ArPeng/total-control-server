@@ -39,7 +39,7 @@ class Rule extends Auth
      */
     public function delete (Request $request)
     {
-        $id = (int) $request->post('id');
+        $id = $request->post('id');
         return \app\admin\logic\Rule::delete($id, self::$user_info['uid']);
     }
 
